@@ -10,18 +10,20 @@
 #ifndef _WINDOW_HPP_
 #define _WINDOW_HPP_
 
-#define WINDOW_WIDTH        200     // 1080
-#define WINDOW_HEIGHT       200     // 720
-#define NUMBER_FUNCTION     5
-
 #include <iostream>
 #include <string>
 
 #include <SFML/Graphics.hpp>
 
+#define WINDOW_WIDTH        200     // 1080
+#define WINDOW_HEIGHT       200     // 720
+#define NUMBER_FUNCTION     5
+
 class Window
 {
     private:
+        typedef void (Window::*function[NUMBER_FUNCTION])(void);
+        
         std::string m_callfunction[NUMBER_FUNCTION] = 
         {
             "exit",
@@ -47,13 +49,22 @@ class Window
 
         /// attribution function by keyboard event
         void pollEvent(void);
+
         void close(void);
         void ls(void);
+        void touch(void);
+        void mkdir(void);
 
-        void (Window::*ptr[NUMBER_FUNCTION])() = 
+        void help(void);
+
+        function call = 
         {
-            Window::close,
-            Window::ls,
+            &Window::close,
+            &Window::ls,
+            &Window::touch,
+            &Window::mkdir,
+            
+            &Window::help
         };
 
         void drawText(sf::Text Text);
