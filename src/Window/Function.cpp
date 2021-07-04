@@ -9,23 +9,24 @@
 
 #include "../../include/Window.hpp"
 
-void Window::close(void)
+void* Window::close(void)
 {
+    std::cout << "exit call" << std::endl;
     this -> m_Window -> close();
 }
-void Window::ls(void)
+void* Window::ls(void)
 {
 
 }
-void Window::touch(void)
+void* Window::touch(void)
 {
 
 }
-void Window::mkdir(void)
+void* Window::mkdir(void)
 {
 
 }
-void Window::help(void)
+void* Window::help(void)
 {
     
 }

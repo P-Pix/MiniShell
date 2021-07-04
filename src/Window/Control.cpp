@@ -35,151 +35,164 @@ void Window::pollEvent(void)
             else if(this -> m_Event.key.code == sf::Keyboard::Enter)
             {
                 std::cout << std::endl;
+                std::cout << m_command << std::endl;
 
                 for(unsigned int x = 0; x < NUMBER_FUNCTION; x ++)
                 {
-                    std::cout << (m_callfunction[x] == m_enter) << std::endl;
-                    if(m_callfunction[x] == m_enter)
+                    if(m_callfunction[x] == m_command)
                     {
+                        std::cout << "function call value = " << call[x] << std::endl;
                         call[x];
                     }
                 }
-                m_enter.clear();
+                for(unsigned int x = m_enter.size() % NUMBER_CHARACTER_WIDTH; x < NUMBER_CHARACTER_WIDTH; x ++)
+                {
+                    m_enter += " ";
+                }
+                m_command.clear();
             }
             else if(this -> m_Event.key.code == sf::Keyboard::Space)
             {
-                m_enter += " ";
-                std::cout << " ";  
+                m_enter += " "; 
+                m_command += " "; 
+            }
+            else if(this -> m_Event.key.code == sf::Keyboard::BackSpace)
+            {
+                if(m_command.size() > 0)
+                {
+                    m_enter.pop_back();
+                    m_command.pop_back();
+                }
             }
             else if(this -> m_Event.key.code == sf::Keyboard::A)
             {
                 m_enter += "a";
-                std::cout << "a";
+                m_command += "a";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::B)
             {
                 m_enter += "b";
-                std::cout << "b";
+                m_command += "b";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::C)
             {
                 m_enter += "c";
-                std::cout << "c";
+                m_command += "c";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::D)
             {
                 m_enter += "d";
-                std::cout << "d";
+                m_command += "d";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::E)
             {
                 m_enter += "e";
-                std::cout << "e";
+                m_command += "e";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::F)
             {
                 m_enter += "f";
-                std::cout << "f";
+                m_command += "f";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::G)
             {
                 m_enter += "g";
-                std::cout << "g";
+                m_command += "g";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::H)
             {
                 m_enter += "h";
-                std::cout << "h";
+                m_command += "h";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::I)
             {
                 m_enter += "i";
-                std::cout << "i";
+                m_command += "i";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::J)
             {
                 m_enter += "j";
-                std::cout << "j";
+                m_command += "j";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::K)
             {
                 m_enter += "k";
-                std::cout << "k";
+                m_command += "k";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::L)
             {
                 m_enter += "l";
-                std::cout << "l";
+                m_command += "l";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::M)
             {
                 m_enter += "m";
-                std::cout << "m";
+                m_command += "m";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::N)
             {
                 m_enter += "n";
-                std::cout << "n";
+                m_command += "n";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::O)
             {
                 m_enter += "o";
-                std::cout << "o";
+                m_command += "o";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::P)
             {
                 m_enter += "p";
-                std::cout << "p";
+                m_command += "p";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::Q)
             {
                 m_enter += "q";
-                std::cout << "q";
+                m_command += "q";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::R)
             {
                 m_enter += "r";
-                std::cout << "r";
+                m_command += "r";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::S)
             {
                 m_enter += "s";
-                std::cout << "s";
+                m_command += "s";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::T)
             {
                 m_enter += "t";
-                std::cout << "t";
+                m_command += "t";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::U)
             {
                 m_enter += "u";
-                std::cout << "u";
+                m_command += "u";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::V)
             {
                 m_enter += "v";
-                std::cout << "v";
+                m_command += "v";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::W)
             {
                 m_enter += "w";
-                std::cout << "w";
+                m_command += "w";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::X)
             {
                 m_enter += "x";
-                std::cout << "x";
+                m_command += "x";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::Y)
             {
                 m_enter += "y";
-                std::cout << "y";
+                m_command += "y";
             }
             else if(this -> m_Event.key.code == sf::Keyboard::Z)
             {
                 m_enter += "z";
-                std::cout << "z";
+                m_command += "z";
             }
         }
     }

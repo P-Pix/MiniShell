@@ -13,12 +13,13 @@ int main(void);
 
 int main(void)
 {
-    Window Window;
+    Window Window; /// getcwd();
     Window.limitFramerate(60);
 
     while(Window.isRunning())
     {
         Window.controlWindow();
+        Window.updateWindow();
     }
     return 0;
 }
