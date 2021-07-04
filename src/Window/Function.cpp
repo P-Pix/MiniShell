@@ -18,11 +18,11 @@ void* Window::ls(void)
 {
 
 }
-void* Window::touch(void)
+void* Window::touch(std::string extend)
 {
 
 }
-void* Window::mkdir(void)
+void* Window::mkdir(std::string extend)
 {
 
 }

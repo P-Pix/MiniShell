@@ -24,19 +24,33 @@
 #define POSITION_Y_MULTIPLICATOR    24
 #define START_LINE                  5
 
-#define NUMBER_FUNCTION         5
+#define NUMBER_FUNCTION             3
+#define NUMBER8FUNCTION_EXTEND      9
 
+/* 
+    quit,
+    ls,
+    new file,
+    new folder,
+    executate,
+    compile c,
+    compile cpp,
+    open file,
+    move directory,
+    makefile,
+    vscode,
+    help
+*/
 class Window
 {
     private:
         typedef void *(Window::*FunctionPointer)(void);
+        typedef void *(Window::*FonctionPointerExtend)(std::string);
         
         std::string m_callfunction[NUMBER_FUNCTION] = 
         {
             "exit",
             "ls",
-            "touch",
-            "mkdir",
             "help",
         };
 
@@ -67,21 +81,29 @@ class Window
 
         /// attribution function by keyboard event
         void pollEvent(void);
+        void letterEvent(void);
+        void enterEvent(void);
 
         void initWindow(void);
 
         void *close(void);
         void *ls(void);
-        void *touch(void);
-        void *mkdir(void);
         void *help(void);
+
+        void *cd(std::string extend);
+        void *touch(std::string extend);
+        void *mkdir(std::string extend);
+        void *execute(std::string extend);
+        void *compilec(std::string extend);
+        void *compilecpp(std::string extend);
+        void *openfile(std::string extend);
+        void *makefile(std::string extend);
+        void *vscode(std::string extend);
 
         FunctionPointer call[NUMBER_FUNCTION] = 
         {
             &Window::close,
             &Window::ls,
-            &Window::touch,
-            &Window::mkdir,
             &Window::help
         };
 
