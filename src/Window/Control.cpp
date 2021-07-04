@@ -57,220 +57,282 @@ void Window::enterEvent(void)
     std::cout << std::endl;
     std::cout << m_command << std::endl;
 
-    for(unsigned int x = 0; x < NUMBER_FUNCTION; x ++)
+    bool space = false;
+    unsigned int x = 0;
+
+    if(!m_command.size() == 0)
     {
-        if(m_callfunction[x] == m_command)
+        while(!space || x != m_command.size())
         {
-            std::cout << "function call value = " << call[x] << std::endl;
-            call[x];
+            if(m_command[x] == ' ')
+            {
+                space = true;
+            }
+            x ++;
+        }
+        if(space)
+        {
+            extendFunction();
+        }
+        else
+        {
+            voidFunction();
         }
     }
     for(unsigned int x = m_enter.size() % NUMBER_CHARACTER_WIDTH; x < NUMBER_CHARACTER_WIDTH; x ++)
     {
-        m_enter += " ";
+        m_enter += ' ';
     }
     m_command.clear();
+}
+
+void Window::extendFunction(void)
+{
+    bool space = false;
+    unsigned int x = 0;
+
+    while(!space)
+    {
+        if(m_command[x] == ' ')
+        {
+            space = true;
+        }
+        else
+        {
+            x ++;
+        }
+    }
+    std::string command;
+    std::string extend;
+    for(unsigned int i = 0; i < x; i ++)
+    {
+        command += m_command[i];
+    }
+    for(unsigned int i = x + 1; i < m_command.size(); i ++)
+    {
+        extend += m_command[i];
+    }
+    for(unsigned int i = 0; i < NUMBER_FUNCTION_EXTEND; i ++)
+    {
+        if(m_callfunctionextend[i] == command)
+        {
+            std::cout << "function call value = " << m_callextend[i] << std::endl;
+            std::cout << "extend = " << extend << std::endl;
+            //m_callextend[i](extend);
+        }
+    }
+}
+void Window::voidFunction(void)
+{
+    for(unsigned int x = 0; x < NUMBER_FUNCTION; x ++)
+    {
+        if(m_callfunction[x] == m_command)
+        {
+            std::cout << "function call value = " << m_call[x] << std::endl;
+            //m_call[x]();
+        }
+    }
 }
 
 void Window::letterEvent(void)
 {
     if(this -> m_Event.key.code == sf::Keyboard::A)
     {
-        m_enter += "a";
-        m_command += "a";
+        m_enter += 'a';
+        m_command += 'a';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::B)
     {
-        m_enter += "b";
-        m_command += "b";
+        m_enter += 'b';
+        m_command += 'b';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::C)
     {
-        m_enter += "c";
-        m_command += "c";
+        m_enter += 'c';
+        m_command += 'c';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::D)
     {
-        m_enter += "d";
-        m_command += "d";
+        m_enter += 'd';
+        m_command += 'd';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::E)
     {
-        m_enter += "e";
-        m_command += "e";
+        m_enter += 'e';
+        m_command += 'e';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::F)
     {
-        m_enter += "f";
-        m_command += "f";
+        m_enter += 'f';
+        m_command += 'f';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::G)
     {
-        m_enter += "g";
-        m_command += "g";
+        m_enter += 'g';
+        m_command += 'g';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::H)
     {
-        m_enter += "h";
-        m_command += "h";
+        m_enter += 'h';
+        m_command += 'h';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::I)
     {
-        m_enter += "i";
-        m_command += "i";
+        m_enter += 'i';
+        m_command += 'i';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::J)
     {
-        m_enter += "j";
-        m_command += "j";
+        m_enter += 'j';
+        m_command += 'j';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::K)
     {
-        m_enter += "k";
-        m_command += "k";
+        m_enter += 'k';
+        m_command += 'k';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::L)
     {
-        m_enter += "l";
-        m_command += "l";
+        m_enter += 'l';
+        m_command += 'l';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::M)
     {
-        m_enter += "m";
-        m_command += "m";
+        m_enter += 'm';
+        m_command += 'm';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::N)
     {
-        m_enter += "n";
-        m_command += "n";
+        m_enter += 'n';
+        m_command += 'n';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::O)
     {
-        m_enter += "o";
-        m_command += "o";
+        m_enter += 'o';
+        m_command += 'o';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::P)
     {
-        m_enter += "p";
-        m_command += "p";
+        m_enter += 'p';
+        m_command += 'p';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Q)
     {
-        m_enter += "q";
-        m_command += "q";
+        m_enter += 'q';
+        m_command += 'q';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::R)
     {
-        m_enter += "r";
-        m_command += "r";
+        m_enter += 'r';
+        m_command += 'r';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::S)
     {
-        m_enter += "s";
-        m_command += "s";
+        m_enter += 's';
+        m_command += 's';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::T)
     {
-        m_enter += "t";
-        m_command += "t";
+        m_enter += 't';
+        m_command += 't';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::U)
     {
-        m_enter += "u";
-        m_command += "u";
+        m_enter += 'u';
+        m_command += 'u';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::V)
     {
-        m_enter += "v";
-        m_command += "v";
+        m_enter += 'v';
+        m_command += 'v';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::W)
     {
-        m_enter += "w";
-        m_command += "w";
+        m_enter += 'w';
+        m_command += 'w';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::X)
     {
-        m_enter += "x";
-        m_command += "x";
+        m_enter += 'x';
+        m_command += 'x';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Y)
     {
-        m_enter += "y";
-        m_command += "y";
+        m_enter += 'y';
+        m_command += 'y';
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Z)
     {
-        m_enter += "z";
-        m_command += "z";
+        m_enter += 'z';
+        m_command += 'z';
     }
     /// SPACE
     else if(this -> m_Event.key.code == sf::Keyboard::Space)
     {
-        m_enter += " "; 
-        m_command += " "; 
+        m_enter += ' '; 
+        m_command += ' '; 
     }
     /// NUMPAD
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad0)
     {
-        m_enter += "0"; 
-        m_command += "0"; 
+        m_enter += '0'; 
+        m_command += '0'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad1)
     {
-        m_enter += "1"; 
-        m_command += "1"; 
+        m_enter += '1'; 
+        m_command += '1'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad2)
     {
-        m_enter += "2"; 
-        m_command += "2"; 
+        m_enter += '2'; 
+        m_command += '2'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad3)
     {
-        m_enter += "3"; 
-        m_command += "3"; 
+        m_enter += '3'; 
+        m_command += '3'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad4)
     {
-        m_enter += "4"; 
-        m_command += "4"; 
+        m_enter += '4'; 
+        m_command += '4'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad5)
     {
-        m_enter += "5"; 
-        m_command += "5"; 
+        m_enter += '5'; 
+        m_command += '5'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad6)
     {
-        m_enter += "6"; 
-        m_command += "6"; 
+        m_enter += '6'; 
+        m_command += '6'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad7)
     {
-        m_enter += "7"; 
-        m_command += "7"; 
+        m_enter += '7'; 
+        m_command += '7'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad8)
     {
-        m_enter += "8"; 
-        m_command += "8"; 
+        m_enter += '8'; 
+        m_command += '8'; 
     }
     else if(this -> m_Event.key.code == sf::Keyboard::Numpad9)
     {
-        m_enter += "9"; 
-        m_command += "9"; 
+        m_enter += '9'; 
+        m_command += '9'; 
     }
     /// OTHER
     else if(this -> m_Event.key.code == sf::Keyboard::Num8)
     {
-        m_enter += "_"; 
-        m_command += "_"; 
+        m_enter += '_'; 
+        m_command += '_'; 
     }
     else if(this -> m_Event.key.code == -1)
     {
-        m_enter += ".";
-        m_command += ".";
+        m_enter += '.';
+        m_command += '.';
     }
     else
     {

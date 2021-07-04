@@ -12,5 +12,13 @@ Write all file and folder in the directory
 Create a folder
 ### touch 
 Create a file
+### cd
+### execute
+### compilec
+### compilecpp
+### openfile
+### makefile
+### vscode
+### git
 ### help
 Write all command and they function

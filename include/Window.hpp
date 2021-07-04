@@ -18,6 +18,7 @@
 
 #define WINDOW_WIDTH                1080
 #define WINDOW_HEIGHT               720
+
 #define NUMBER_CHARACTER_WIDTH      54
 #define NUMBER_CHARACTER_HEIGHT     30
 #define POSITION_X_MULTIPLICATOR    20
@@ -25,10 +26,10 @@
 #define START_LINE                  5
 
 #define NUMBER_FUNCTION             3
-#define NUMBER8FUNCTION_EXTEND      9
+#define NUMBER_FUNCTION_EXTEND      10
 
 /* 
-    quit,
+    exit,
     ls,
     new file,
     new folder,
@@ -39,6 +40,7 @@
     move directory,
     makefile,
     vscode,
+    git,
     help
 */
 class Window
@@ -46,13 +48,6 @@ class Window
     private:
         typedef void *(Window::*FunctionPointer)(void);
         typedef void *(Window::*FonctionPointerExtend)(std::string);
-        
-        std::string m_callfunction[NUMBER_FUNCTION] = 
-        {
-            "exit",
-            "ls",
-            "help",
-        };
 
         std::string m_enter;
         std::string m_command;
@@ -99,12 +94,49 @@ class Window
         void *openfile(std::string extend);
         void *makefile(std::string extend);
         void *vscode(std::string extend);
+        void *git(std::string extend);
 
-        FunctionPointer call[NUMBER_FUNCTION] = 
+        void extendFunction(void);
+        void voidFunction(void);
+        
+        std::string m_callfunction[NUMBER_FUNCTION] = 
+        {
+            "exit",
+            "ls",
+            "help",
+        };
+        FunctionPointer m_call[NUMBER_FUNCTION] = 
         {
             &Window::close,
             &Window::ls,
             &Window::help
+        };
+
+        std::string m_callfunctionextend[NUMBER_FUNCTION_EXTEND] = 
+        {
+            "cd",
+            "touch",
+            "mkdir",
+            "execute",
+            "compilec",
+            "compilecpp",
+            "openfile",
+            "makefile",
+            "vscode",
+            "git",
+        };
+        FonctionPointerExtend m_callextend[NUMBER_FUNCTION_EXTEND] = 
+        {
+            &Window::cd,
+            &Window::touch,
+            &Window::mkdir,
+            &Window::execute,
+            &Window::compilec,
+            &Window::compilecpp,
+            &Window::openfile,
+            &Window::makefile,
+            &Window::vscode,
+            &Window::git,
         };
 
         void drawText(sf::Text Text);

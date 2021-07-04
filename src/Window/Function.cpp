@@ -18,15 +18,47 @@ void* Window::ls(void)
 {
 
 }
-void* Window::touch(std::string extend)
-{
-
-}
-void* Window::mkdir(std::string extend)
-{
-
-}
 void* Window::help(void)
+{
+    
+}
+void *Window::cd(std::string extend)
+{
+
+}
+void *Window::touch(std::string extend)
+{
+
+}
+void *Window::mkdir(std::string extend)
+{
+
+}
+void *Window::execute(std::string extend)
+{
+
+}
+void *Window::compilec(std::string extend)
+{
+
+}
+void *Window::compilecpp(std::string extend)
+{
+
+}
+void *Window::openfile(std::string extend)
+{
+
+}
+void *Window::makefile(std::string extend)
+{
+
+}
+void *Window::vscode(std::string extend)
+{
+
+}
+void *Window::git(std::string extend)
 {
     
 }
