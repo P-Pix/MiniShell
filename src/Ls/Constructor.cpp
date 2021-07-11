@@ -1,5 +1,5 @@
 /**
- * @file ls.cpp
+ * @file Constructor.cpp
  * @author Guillaume LEMONNIER
  * @date 2021-06-25
  * 
@@ -7,11 +7,27 @@
  * 
  */
 
-#include <iostream>
-#include <string>
-
-/// Print all file and folder in the directory
-void ls(std::string directory)
+Ls::Ls(void)
 {
     
+}
+
+Ls::~Ls(void)
+{
+
+}
+
+void Ls::exe(std::string directory)
+{
+    m_list.clear();
+    for(const auto & entry : filesystem::directory_iterator(directory))
+    {
+        std::cout << entry.path() << std::endl;
+        m_list += entry.path();
+        m_list += ' ';
+    }
+}
+std::string Ls::getList(void)
+{
+    return m_list;
 }

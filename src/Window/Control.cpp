@@ -58,17 +58,15 @@ void Window::enterEvent(void)
     std::cout << m_command << std::endl;
 
     bool space = false;
-    unsigned int x = 0;
 
     if(!m_command.size() == 0)
     {
-        while(!space || x != m_command.size())
+        for(unsigned int x = 0; x < m_command.size(); x ++)
         {
             if(m_command[x] == ' ')
             {
                 space = true;
             }
-            x ++;
         }
         if(space)
         {
@@ -112,6 +110,8 @@ void Window::extendFunction(void)
     {
         extend += m_command[i];
     }
+    extended(command, extend);
+    /*
     for(unsigned int i = 0; i < NUMBER_FUNCTION_EXTEND; i ++)
     {
         if(m_callfunctionextend[i] == command)
@@ -121,9 +121,12 @@ void Window::extendFunction(void)
             //m_callextend[i](extend);
         }
     }
+    */
 }
 void Window::voidFunction(void)
 {
+    noextended(m_command);
+    /*
     for(unsigned int x = 0; x < NUMBER_FUNCTION; x ++)
     {
         if(m_callfunction[x] == m_command)
@@ -132,6 +135,7 @@ void Window::voidFunction(void)
             //m_call[x]();
         }
     }
+    */
 }
 
 void Window::letterEvent(void)
@@ -333,6 +337,11 @@ void Window::letterEvent(void)
     {
         m_enter += '.';
         m_command += '.';
+    }
+    else if(this -> m_Event.key.code == 70)
+    {
+        m_enter += '/';
+        m_command += '/';
     }
     else
     {

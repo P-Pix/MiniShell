@@ -98,6 +98,12 @@ class Window
 
         void extendFunction(void);
         void voidFunction(void);
+
+        //////////////////////////////
+
+        void extended(std::string function, std::string extend);
+        void noextended(std::string function);
+        //////////////////////////////
         
         std::string m_callfunction[NUMBER_FUNCTION] = 
         {
@@ -147,6 +153,8 @@ class Window
         void positionAllText(void);
         sf::Text positionText(sf::Text text, unsigned int x, unsigned int y);
         void allDraw(void);
+
+        void addStringInEnter(std::string string);
 
 
     public:

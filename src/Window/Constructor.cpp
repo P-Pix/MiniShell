@@ -37,3 +37,18 @@ void Window::updateWindow(void)
 {
     allDraw();
 }
+
+void Window::addStringInEnter(std::string string)
+{
+    if(string.size())
+    {
+        for(unsigned int x = m_enter.size() % NUMBER_CHARACTER_WIDTH; x < NUMBER_CHARACTER_WIDTH; x ++)
+        {
+            m_enter += ' ';
+        }
+        for(unsigned int letter = 0; letter < string.size(); letter ++)
+        {
+            m_enter += string[letter];
+        }
+    }
+}
